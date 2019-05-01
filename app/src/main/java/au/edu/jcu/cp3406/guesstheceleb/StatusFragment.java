@@ -3,6 +3,7 @@ package au.edu.jcu.cp3406.guesstheceleb;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -32,7 +33,7 @@ public class StatusFragment extends Fragment {
     TextView score;
     private boolean isRunning;
     private int speed = 1000;
-    private static int secondsLeft;
+    private static int secondsLeft = 60;
 
     Handler handler = new Handler();
 
@@ -62,12 +63,13 @@ public class StatusFragment extends Fragment {
     }
 
     public void countDownTimer(){
-        secondsLeft = 60;
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    if (isRunning) {
+                    if (secondsLeft > 0) {
                         tick();
+                    } else {
+                        startActivity(new Intent(getActivity(), Pop.class));
                     }
                     timeRemaining.setText(String.valueOf(R.string.time_left + secondsLeft + R.string.seconds));
                     handler.postDelayed(this, speed);
@@ -85,25 +87,5 @@ public class StatusFragment extends Fragment {
         secondsLeft--;
     }
 
-    public static void gameOver(Context contextClass, String reasonGameOver) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(contextClass);
-        builder.setCancelable(true);
-        builder.setTitle("GameOver!!");
-        builder.setMessage(reasonGameOver);
-        builder.setPositiveButton("Confirm",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
-        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
 
 }
