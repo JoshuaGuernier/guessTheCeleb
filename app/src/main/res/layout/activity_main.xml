@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.tools"
+    android:id="@+id/status"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:layout="@layout/fragment_game">
+
+    <android.support.v4.view.ViewPager
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/MainContainer">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:background="#2196F3"
+            android:textColor="#FFFFFF"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/play_game"/>
+    </android.support.v4.view.ViewPager>
+
+
+
+</android.support.constraint.ConstraintLayout>

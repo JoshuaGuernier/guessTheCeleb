@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">guessTheCeleb</string>
+    <string name="imageofceleb">ImageOfCeleb</string>
+    <string name="select_difficulty">Select Difficulty</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="level">Level: ?</string>
+    <string name="play">Play!</string>
+    <string name="time_remaining">Time remaining: 0 Seconds</string>
+    <string name="score_0_10">score:0/10</string>
+    <string name="play_game">Play Game</string>
+    <string name="celebrity_image">Celebrity Image</string>
+    <string name="time_left">Time remaining: </string>
+    <string name="seconds"> Seconds!</string>
+</resources>
