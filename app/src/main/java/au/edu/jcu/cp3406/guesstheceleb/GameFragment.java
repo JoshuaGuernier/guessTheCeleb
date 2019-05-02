@@ -1,7 +1,6 @@
 package au.edu.jcu.cp3406.guesstheceleb;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,7 +14,6 @@ import android.widget.Spinner;
 
 import java.util.Objects;
 
-import au.edu.jcu.cp3406.guesstheceleb.game.Question;
 import au.edu.jcu.cp3406.guesstheceleb.game.QuestionBuilder;
 
 
@@ -43,6 +41,7 @@ public class GameFragment extends Fragment {
                 // Run game Builder, Associate loaded images and names.
                 // Transfer to fragment Question.
                 new QuestionBuilder(getDifficultyNumber());
+                StatusFragment.restartCountdownTimer();
                 ((MainActivity) Objects.requireNonNull(getActivity())).setNewPager(1);
 
             }

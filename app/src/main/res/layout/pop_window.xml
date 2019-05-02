@@ -10,7 +10,37 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="GameOver"
-        android:textSize="26sp"
-        android:textColor="@color/textColour"/>
+        android:text="@string/gameover"
+        android:textColor="@color/textColour"
+        android:textSize="26sp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:paddingLeft="4.0dip"
+        android:paddingTop="5.0dip"
+        android:paddingRight="4.0dip"
+        android:paddingBottom="1.0dip"
+        >
+        <Button
+            style="@style/TextAppearance.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:onClick="restartGame"
+            android:text="@string/play_again"
+            />
+
+        <Button
+            style="@style/TextAppearance.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:onClick="quitGame"
+            android:text="@string/quit"
+            />
+
+    </LinearLayout>
 </RelativeLayout>

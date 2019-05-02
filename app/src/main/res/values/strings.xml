@@ -13,4 +13,7 @@
     <string name="celebrity_image">Celebrity Image</string>
     <string name="time_left">Time remaining: </string>
     <string name="seconds"> Seconds!</string>
+    <string name="gameover">GameOver</string>
+    <string name="play_again">Play Again?</string>
+    <string name="quit">Quit!</string>
 </resources>

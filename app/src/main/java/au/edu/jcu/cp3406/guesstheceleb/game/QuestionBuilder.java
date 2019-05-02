@@ -36,8 +36,6 @@ public class QuestionBuilder extends AppCompatActivity {
         }
         // Randomly inserts chosen celebrity name to questions out array.
         questionsOut[random.nextInt(questionsOut.length)] = CelebrityManager.getName(randomCeleb);
-        System.out.println(CelebrityManager.getName(randomCeleb));
-        System.out.println(Arrays.toString(questionsOut));
     }
 
 }
