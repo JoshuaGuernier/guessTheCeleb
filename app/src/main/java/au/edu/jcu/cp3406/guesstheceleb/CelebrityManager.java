@@ -19,7 +19,7 @@ public class CelebrityManager {
     private static AssetManager assetManager;
     private static int celebrityCount;
 
-    public CelebrityManager(AssetManager assetManagerInput, String assetPathInput) {
+    CelebrityManager(AssetManager assetManagerInput, String assetPathInput) {
         try {
             Log.d(TAG, "CelebrityManager: Started. ");
             // Creates and associates universal arrays.
@@ -42,12 +42,12 @@ public class CelebrityManager {
     }
 
     // Replaces - and .jpg from Name.
-    public static String replaceFromWord(String word) {
+    private String replaceFromWord(String word) {
         return word.replace('-', ' ').replace(".jpg", "");
     }
 
     // Uppercase word
-    public static String uppercaseWord(String inputString) {
+    private String uppercaseWord(String inputString) {
         String[] words = inputString.split("\\s");
         StringBuilder capitalizeWord = new StringBuilder();
         for (String word : words) {

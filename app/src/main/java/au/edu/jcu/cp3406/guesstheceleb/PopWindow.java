@@ -2,13 +2,12 @@ package au.edu.jcu.cp3406.guesstheceleb;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.util.DisplayMetrics;
 import android.view.View;
 
 import au.edu.jcu.cp3406.guesstheceleb.game.QuestionBuilder;
 
-public class Pop extends Activity {
+public class PopWindow extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +19,13 @@ public class Pop extends Activity {
         int width = displayMetrics.widthPixels;
         int height = displayMetrics.heightPixels;
 
-        getWindow().setLayout((int)(width*.8), (int)(height*.8));
+        getWindow().setLayout((int) (width * .8), (int) (height * .8));
     }
 
     public void restartGame(View view) {
         new QuestionBuilder(GameFragment.numberOfCelebrities);
         StatusFragment.restartCountdownTimer();
+        this.finish();
     }
 
     public void quitGame(View view) {

@@ -40,8 +40,4 @@ public class MainActivity extends AppCompatActivity {
     public void setNewPager (int fragmentNumber){
         viewPager.setCurrentItem(fragmentNumber);
     }
-
-    public void errorMessage(){
-
-    }
 }

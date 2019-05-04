@@ -18,9 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".game.QuestionBuilder" />
-        <activity android:name=".Pop"
-            android:theme="@style/AppTheme.CustomTheme"/>
+        <activity
+            android:name=".PopWindow"
+            android:theme="@style/AppTheme.CustomTheme" />
     </application>
 
 </manifest>

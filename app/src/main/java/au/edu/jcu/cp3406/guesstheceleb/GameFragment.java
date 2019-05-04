@@ -31,9 +31,8 @@ public class GameFragment extends Fragment {
         // Inflate the layout for this fragment
         final View gameFragmentView = inflater.inflate(R.layout.fragment_game, container, false);
         Button playGameButton = gameFragmentView.findViewById(R.id.gamePlayButton);
-        Log.d(TAG, "onCreateView: Started");
-
-
+        Log.d(TAG, "onCreateView: Started.");
+        StatusFragment.isTimerRunning = false;
         spinnerDifficulty = gameFragmentView.findViewById(R.id.difficultySpinner);
         playGameButton.setOnClickListener(new View.OnClickListener() {
             @Override

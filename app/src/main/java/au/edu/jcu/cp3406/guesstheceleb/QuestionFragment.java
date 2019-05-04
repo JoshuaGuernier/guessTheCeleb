@@ -1,14 +1,11 @@
 package au.edu.jcu.cp3406.guesstheceleb;
 
 
-import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import au.edu.jcu.cp3406.guesstheceleb.game.Game;
-import au.edu.jcu.cp3406.guesstheceleb.game.Question;
 import au.edu.jcu.cp3406.guesstheceleb.game.QuestionBuilder;
 
 
@@ -44,12 +40,11 @@ public class QuestionFragment extends Fragment {
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT);
-
+            // Add buttons to
             Button button = new Button(fragmentQuestionView.getContext());
             button.setId(i);
             final int id_ = button.getId();
             button.setText(QuestionBuilder.questionsOut[i]);
-            System.out.println(QuestionBuilder.questionsOut[i]);
             button.setBackgroundColor(Color.GRAY);
             button.setLayoutParams(params);
             linearLayout.addView(button, params);

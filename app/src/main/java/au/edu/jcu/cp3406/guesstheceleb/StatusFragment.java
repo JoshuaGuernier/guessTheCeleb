@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.Locale;
+import java.util.Objects;
 
 import au.edu.jcu.cp3406.guesstheceleb.game.Game;
 
@@ -23,7 +24,9 @@ public class StatusFragment extends Fragment {
     public static final String TAG = "StatusFragment";
     TextView timeRemaining;
     TextView score;
+    View statusFragmentView;
     static CountDownTimer countDownTimer;
+    static boolean isTimerRunning;
 
     public StatusFragment() {
         // Required empty public constructor
@@ -33,7 +36,7 @@ public class StatusFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View statusFragmentView = inflater.inflate(R.layout.fragment_status, container, false);
+        statusFragmentView = inflater.inflate(R.layout.fragment_status, container, false);
         timeRemaining = statusFragmentView.findViewById(R.id.timeRemaining);
         score = statusFragmentView.findViewById(R.id.score);
         countDownTimer();
@@ -49,23 +52,29 @@ public class StatusFragment extends Fragment {
         countDownTimer = new CountDownTimer(30000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                int mathOut = (int) (millisUntilFinished / 1000);
-                timeRemaining.setText(String.format(Locale.getDefault(), "%s%s%s%s%s",
-                        getText(R.string.time_left), " ", String.valueOf(mathOut), " ", getText(R.string.seconds)));
+                isTimerRunning = true;
+                timeRemaining.setText(String.format(Locale.getDefault(), "%s%s%s",
+                        "Time Remaining: ",
+                        String.valueOf((int) (millisUntilFinished / 1000))
+                        , " Seconds."));
                 updateScore();
             }
 
+            // Once timer is finished calls pop up window.
             @Override
             public void onFinish() {
-                startActivity(new Intent(getActivity(), Pop.class));
+                isTimerRunning = false;
+                startActivity(new Intent(getActivity(), PopWindow.class));
             }
         }.start();
     }
 
     // calls for countdown timer to reset.
     public static void restartCountdownTimer() {
-        countDownTimer.cancel();
-        countDownTimer.start();
+        if (isTimerRunning = true) {
+            countDownTimer.cancel();
+            countDownTimer.start();
+        }
     }
 
     @Override

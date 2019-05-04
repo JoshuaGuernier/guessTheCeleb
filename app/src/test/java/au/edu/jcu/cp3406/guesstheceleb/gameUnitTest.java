@@ -24,7 +24,7 @@ public class gameUnitTest {
 
         while (!game.isGameOver()) {
             Question question = game.next();
-            game.updateScore(question.check("bob"));
+            Game.updateScore(question.check("bob"));
         }
         assertEquals("Score: 1/3", Game.getScore());
     }
