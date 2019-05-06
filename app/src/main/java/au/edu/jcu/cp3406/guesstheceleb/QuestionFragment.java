@@ -7,14 +7,17 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import au.edu.jcu.cp3406.guesstheceleb.game.Game;
+import au.edu.jcu.cp3406.guesstheceleb.game.Question;
 import au.edu.jcu.cp3406.guesstheceleb.game.QuestionBuilder;
 
 
@@ -55,7 +58,13 @@ public class QuestionFragment extends Fragment {
                 public void onClick(View view) {
                     Log.d(TAG, "Button Clicked");
                     Button generatedButton = (Button) view;
-                    Game.updateScore(QuestionBuilder.question.check(generatedButton.getText().toString()));
+                    boolean result = QuestionBuilder.question.check(generatedButton.getText().toString());
+                    Game.updateScore(result);
+                    if(result){
+                        resultToastOut("Correct!");
+                    } else {
+                        resultToastOut("Incorrect!");
+                    }
                     linearLayout.removeAllViewsInLayout();
                     makeButtons();
                 }
@@ -76,6 +85,12 @@ public class QuestionFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+    }
+
+    public void resultToastOut(String messageOut){
+        Toast toast = Toast.makeText(getContext(), messageOut, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0,0);
+        toast.show();
     }
 
 

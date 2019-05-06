@@ -1,6 +1,5 @@
 package au.edu.jcu.cp3406.guesstheceleb.game;
 
-import android.util.Log;
 
 public class Game {
 
@@ -30,7 +29,6 @@ public class Game {
             score++;
         }
         questionsTotal ++;
-        System.out.println(score + " / " +  questionsTotal);
     }
 
     public static String getScore() {
