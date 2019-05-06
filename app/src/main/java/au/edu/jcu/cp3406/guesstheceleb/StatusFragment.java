@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.Locale;
-import java.util.Objects;
 
 import au.edu.jcu.cp3406.guesstheceleb.game.Game;
 
@@ -23,7 +22,8 @@ public class StatusFragment extends Fragment {
 
     public static final String TAG = "StatusFragment";
     TextView timeRemaining;
-    TextView score;
+    TextView scoreTextView;
+    int score;
     View statusFragmentView;
     static CountDownTimer countDownTimer;
     static boolean isTimerRunning;
@@ -38,13 +38,13 @@ public class StatusFragment extends Fragment {
                              Bundle savedInstanceState) {
         statusFragmentView = inflater.inflate(R.layout.fragment_status, container, false);
         timeRemaining = statusFragmentView.findViewById(R.id.timeRemaining);
-        score = statusFragmentView.findViewById(R.id.score);
+        scoreTextView = statusFragmentView.findViewById(R.id.scoreTextView);
         countDownTimer();
         return statusFragmentView;
     }
 
     public void updateScore() {
-        score.setText(Game.getScore());
+        scoreTextView.setText(Game.getScore());
     }
 
     // Creates timer and adds result to string.
@@ -82,5 +82,6 @@ public class StatusFragment extends Fragment {
         super.onDestroy();
     }
 
-
+    public void setScoreTextView(String score) {
+    }
 }

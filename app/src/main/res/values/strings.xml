@@ -8,7 +8,7 @@
     <string name="level">Level: ?</string>
     <string name="play">Play!</string>
     <string name="time_remaining">Time remaining: 0 Seconds</string>
-    <string name="score_0_10">score:0/10</string>
+    <string name="score_0_10">scoreTextView:0/10</string>
     <string name="play_game">Play Game</string>
     <string name="celebrity_image">Celebrity Image</string>
     <string name="time_left">Time remaining:</string>

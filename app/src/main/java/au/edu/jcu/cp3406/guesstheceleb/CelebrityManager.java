@@ -36,6 +36,7 @@ public class CelebrityManager {
                 imageNamesReformatted[celebrityCount] = tempString;
                 celebrityCount++;
             }
+            System.out.println(celebrityCount);
         } catch (IOException e) {
             e.printStackTrace();
         }

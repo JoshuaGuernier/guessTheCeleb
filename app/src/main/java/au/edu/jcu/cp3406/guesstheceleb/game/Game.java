@@ -34,4 +34,5 @@ public class Game {
     public static String getScore() {
         return ("Score: " + score + " / " + questionsTotal);
     }
+
 }
