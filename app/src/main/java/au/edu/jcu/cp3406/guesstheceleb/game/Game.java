@@ -5,8 +5,7 @@ public class Game {
 
     public static final String TAG = "Game";
     private int questionNumber;
-    private static int questionsTotal;
-    private static int score;
+    private static int questionsTotal, score;
     private Question[] questions;
 
     public Game(Question[] questions) {

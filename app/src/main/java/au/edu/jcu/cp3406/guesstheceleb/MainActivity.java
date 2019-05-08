@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements StateListener {
     private StatusFragment statusFragment;
     private QuestionFragment questionFragment;
     private boolean isLargeScreen = false;
+    private double diagonalInches;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements StateListener {
         Log.d(TAG, "onCreate: Started. ");
         // Sets up Celebrity Manager.
         new CelebrityManager(this.getAssets(), "celebs");
+        calculateScreenSize();
 
         viewPager = findViewById(R.id.MainContainer);
         SectionsStatePageAdapter sectionsStatePageAdapter = new SectionsStatePageAdapter(getSupportFragmentManager());
@@ -43,16 +45,17 @@ public class MainActivity extends AppCompatActivity implements StateListener {
         questionFragment = (QuestionFragment) fragmentManager.findFragmentById(R.id.questionFragment);
         isLargeScreen = statusFragment != null;
         // Finds inches of height and width of display and calculates if the screen is larger than 7.
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        this.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        float yInches= displayMetrics.heightPixels/displayMetrics.ydpi;
-        float xInches= displayMetrics.widthPixels/displayMetrics.xdpi;
-        double diagonalInches = Math.sqrt(Math.pow(xInches, 2) + Math.pow(yInches, 2));
-        if (diagonalInches < largeScreenInches){
-            isLargeScreen = true;
-        }
 
     }
+
+    private void calculateScreenSize() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        this.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        float yInches = displayMetrics.heightPixels / displayMetrics.ydpi;
+        float xInches = displayMetrics.widthPixels / displayMetrics.xdpi;
+        diagonalInches = Math.sqrt(Math.pow(xInches, 2) + Math.pow(yInches, 2));
+    }
+
 
     // Adds fragments to Sections State Page Adapter.
     private void setViewPager(ViewPager viewPager) {

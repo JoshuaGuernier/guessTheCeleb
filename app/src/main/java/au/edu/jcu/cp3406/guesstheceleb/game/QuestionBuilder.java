@@ -43,7 +43,7 @@ public class QuestionBuilder extends AppCompatActivity {
         // Gets random celeb.
         Random random = new Random();
         randomCeleb = random.nextInt(CelebrityManager.count());
-        Log.d(TAG, "Started random Celeb" + randomCeleb);
+        Log.d(TAG, "Started random Celeb " + randomCeleb);
         question = new Question(CelebrityManager.getName(randomCeleb),
                 CelebrityManager.get(randomCeleb), CelebrityManager.getImageNamesReformatted());
         // Creates and initializes string array.

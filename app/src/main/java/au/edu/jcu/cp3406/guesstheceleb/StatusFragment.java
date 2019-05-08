@@ -23,7 +23,6 @@ public class StatusFragment extends Fragment {
     public static final String TAG = "StatusFragment";
     TextView timeRemaining;
     TextView scoreTextView;
-    int score;
     View statusFragmentView;
     static CountDownTimer countDownTimer;
     static boolean isTimerRunning;
@@ -64,7 +63,7 @@ public class StatusFragment extends Fragment {
             @Override
             public void onFinish() {
                 isTimerRunning = false;
-                startActivity(new Intent(getActivity(), PopWindow.class));
+                startActivity(new Intent(getContext(), PopWindow.class));
             }
         }.start();
     }
@@ -83,5 +82,6 @@ public class StatusFragment extends Fragment {
     }
 
     public void setScoreTextView(String score) {
+
     }
 }

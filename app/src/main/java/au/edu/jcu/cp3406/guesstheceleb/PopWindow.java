@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.TextView;
 
+import au.edu.jcu.cp3406.guesstheceleb.game.Game;
 import au.edu.jcu.cp3406.guesstheceleb.game.QuestionBuilder;
 
 public class PopWindow extends Activity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,10 @@ public class PopWindow extends Activity {
         int height = displayMetrics.heightPixels;
 
         getWindow().setLayout((int) (width * .8), (int) (height * .8));
+
+        TextView scoreOut = getWindow().findViewById(R.id.ScoreOut);
+        scoreOut.setText(Game.getScore());
+
     }
 
     public void restartGame(View view) {

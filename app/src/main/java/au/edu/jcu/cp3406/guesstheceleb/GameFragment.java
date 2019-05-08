@@ -19,9 +19,6 @@ import java.util.Objects;
 
 import au.edu.jcu.cp3406.guesstheceleb.game.QuestionBuilder;
 
-import static au.edu.jcu.cp3406.guesstheceleb.R.layout.support_simple_spinner_dropdown_item;
-
-
 /**
  * A simple {@link Fragment} subclass.
  */

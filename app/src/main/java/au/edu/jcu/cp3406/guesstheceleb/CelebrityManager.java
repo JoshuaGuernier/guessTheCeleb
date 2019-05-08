@@ -14,8 +14,7 @@ public class CelebrityManager {
     private static final String TAG = "CelebrityManager";
 
     private static String assetPath;
-    private static String[] imageNames;
-    private static String[] imageNamesReformatted;
+    private static String[] imageNames,imageNamesReformatted;
     private static AssetManager assetManager;
     private static int celebrityCount;
 
@@ -25,7 +24,6 @@ public class CelebrityManager {
             // Creates and associates universal arrays.
             assetPath = assetPathInput;
             assetManager = assetManagerInput;
-            // Adds content to newly created
             imageNames = assetManager.list(assetPath);
             imageNamesReformatted = assetManager.list(assetPath);
             assert imageNamesReformatted != null;
@@ -59,7 +57,7 @@ public class CelebrityManager {
         return capitalizeWord.toString().trim();
     }
 
-    // Gets Image in relation to position in array.
+    // Gets Image in relation to position in created array.
     public static Bitmap get(int i) {
         InputStream inputStream;
         Bitmap bitmap = null;
