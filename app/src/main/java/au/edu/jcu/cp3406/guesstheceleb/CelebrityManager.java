@@ -7,6 +7,7 @@ import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Random;
 
 
 public class CelebrityManager {
@@ -73,6 +74,11 @@ public class CelebrityManager {
 
     public static int count(){
         return celebrityCount;
+    }
+
+    public static int getRandomCeleb(){
+        Random random = new Random();
+        return random.nextInt(celebrityCount);
     }
 
     //Gets image name in relation to position of array.

@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 import au.edu.jcu.cp3406.guesstheceleb.game.Game;
 import au.edu.jcu.cp3406.guesstheceleb.game.QuestionBuilder;
 
@@ -43,6 +45,7 @@ public class QuestionFragment extends Fragment {
 
     // Makes buttons dynamically and allocates to button holder view.
     public void makeButtons() {
+        ((MainActivity) Objects.requireNonNull(getActivity())).questionMaker();
         Log.d(TAG, "makeButtons: Started");
         new QuestionBuilder(GameFragment.numberOfCelebrities);
         celebrityImageView.setImageBitmap(QuestionBuilder.question.getCelebrityImage());

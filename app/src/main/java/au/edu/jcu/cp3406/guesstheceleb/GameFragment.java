@@ -24,10 +24,10 @@ import au.edu.jcu.cp3406.guesstheceleb.game.QuestionBuilder;
  */
 public class GameFragment extends Fragment {
     public static final String TAG = "GameFragment";
-    static int numberOfCelebrities = 3; // Implies start on Easy.
+    static int numberOfCelebrities = 3; // Need to fix this.
     Spinner spinnerDifficulty;
     private StateListener listener;
-    private Difficulty level = Difficulty.EASY;
+    private Difficulty level;
 
     @Override
     public void onAttach(Context context) {
@@ -56,9 +56,12 @@ public class GameFragment extends Fragment {
                 // Run game Builder, Associate loaded images and names.
                 // Transfer to fragment Question.
                 level = Difficulty.valueOf(spinnerDifficulty.getSelectedItem().toString());
+                numberOfCelebrities = level.getNumberOfCelebrities();
                 new QuestionBuilder(level.getNumberOfCelebrities());
                 StatusFragment.restartCountdownTimer();
-                ((MainActivity) Objects.requireNonNull(getActivity())).setNewPager(1);
+                if (!MainActivity.isLargeScreen) {
+                    ((MainActivity) Objects.requireNonNull(getActivity())).setNewPager(1);
+                }
 
             }
         });

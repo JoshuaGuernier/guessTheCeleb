@@ -44,7 +44,7 @@
             android:id="@+id/statusFragment"
             android:name="au.edu.jcu.cp3406.guesstheceleb.StatusFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:layout_weight="1.0"
             tools:layout="@layout/fragment_status" />
 

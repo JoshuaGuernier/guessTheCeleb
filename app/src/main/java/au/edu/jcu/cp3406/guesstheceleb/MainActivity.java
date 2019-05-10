@@ -17,14 +17,14 @@ public class MainActivity extends AppCompatActivity implements StateListener {
     private static final String TAG = "MainActivity";
 
     // Sets large screen to inches.
-    final int largeScreenInches = 7;
 
     private ViewPager viewPager;
     private GameFragment gameFragment;
     private StatusFragment statusFragment;
     private QuestionFragment questionFragment;
-    private boolean isLargeScreen = false;
-    private double diagonalInches;
+    static boolean isLargeScreen = false;
+    double diagonalInches;
+    double largeScreen = 6.5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,20 +32,20 @@ public class MainActivity extends AppCompatActivity implements StateListener {
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: Started. ");
         // Sets up Celebrity Manager.
-        new CelebrityManager(this.getAssets(), "celebs");
-        calculateScreenSize();
-
         viewPager = findViewById(R.id.MainContainer);
         SectionsStatePageAdapter sectionsStatePageAdapter = new SectionsStatePageAdapter(getSupportFragmentManager());
-        setViewPager(viewPager);
+        calculateScreenSize();
+        if (diagonalInches < largeScreen) {
+            setViewPager(viewPager);
+        } else {
 //         Sets up fragment grouping.
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        gameFragment = (GameFragment) fragmentManager.findFragmentById(R.id.gameFragment);
-        statusFragment = (StatusFragment) fragmentManager.findFragmentById(R.id.statusFragment);
-        questionFragment = (QuestionFragment) fragmentManager.findFragmentById(R.id.questionFragment);
-        isLargeScreen = statusFragment != null;
-        // Finds inches of height and width of display and calculates if the screen is larger than 7.
-
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            gameFragment = (GameFragment) fragmentManager.findFragmentById(R.id.gameFragment);
+            statusFragment = (StatusFragment) fragmentManager.findFragmentById(R.id.statusFragment);
+            questionFragment = (QuestionFragment) fragmentManager.findFragmentById(R.id.questionFragment);
+            isLargeScreen = statusFragment != null;
+            // Finds inches of height and width of display and calculates if the screen is larger than 7.
+        }
     }
 
     private void calculateScreenSize() {
@@ -55,8 +55,6 @@ public class MainActivity extends AppCompatActivity implements StateListener {
         float xInches = displayMetrics.widthPixels / displayMetrics.xdpi;
         diagonalInches = Math.sqrt(Math.pow(xInches, 2) + Math.pow(yInches, 2));
     }
-
-
     // Adds fragments to Sections State Page Adapter.
     private void setViewPager(ViewPager viewPager) {
         SectionsStatePageAdapter adapter = new SectionsStatePageAdapter(getSupportFragmentManager());
@@ -94,5 +92,8 @@ public class MainActivity extends AppCompatActivity implements StateListener {
             // Something happens here.
         }
 
+    }
+    public void questionMaker(){
+        new CelebrityManager(this.getAssets(), "celebs");
     }
 }
